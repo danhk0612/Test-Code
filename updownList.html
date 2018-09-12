@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#upBtn").click(function () {
+                $("input:checked").each(function () {
+                    moveUp(this);
+                })
+            })
+            $("#downBtn").click(function () {
+                $( $('input:checked').get().reverse() ).each(function () {
+                    moveDown(this);
+                })
+            })
+        });
+
+        function moveUp(v) {
+            let temp = $(v).parent().parent();
+            temp.prev().before(temp);
+        }
+
+        function moveDown(v) {
+            let temp = $(v).parent().parent();
+            temp.next().after(temp);
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="upBtn">Up</button>
+    <button id="downBtn">Down</button>
+    <table>
+        <tbody>
+            <tr>
+                <th><input class="listItem" type="checkbox" name="" id="" value="1"></th>
+                <td>홍길동</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th><input class="listItem" type="checkbox" name="" id="" value="2"></th>
+                <td>단군</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <th><input class="listItem" type="checkbox" name="" id="" value="3"></th>
+                <td>이성계</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <th><input class="listItem" type="checkbox" name="" id="" value="4"></th>
+                <td>안중근</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th><input class="listItem" type="checkbox" name="" id="" value="5"></th>
+                <td>고주몽</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
